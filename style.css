@@ -1,0 +1,126 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    height: 5em;
+    justify-content: space-between;
+    background-color:#fff;
+    border-bottom: 8px double #0000FF;
+    box-shadow: 2px 2px 50px #818181;
+    z-index: 10;
+    transition: all ease-out 0.3s;
+}
+.header:hover {
+    box-shadow: none;
+}
+
+.header_logo img{
+    width: 5em;
+    padding-left: 1em;
+}
+
+.header_menu {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    margin-top: 0.5em;
+    font-size: 1.75em;
+}
+.header_menu li {
+    margin-right: 0.7em;
+    padding: 0 0.7em;
+    text-align: center;
+    text-shadow: 1px 1px #818181;
+    cursor: pointer;
+}
+.header_menu li:hover {
+    background-color: #ededed;
+    box-shadow: 1px 1px #909090;
+}
+.header_menu sub:hover{
+    background-color: #fff;
+    border:2px blue;
+
+}
+.header_menu li:active {
+    background-color: #818181;
+}
+li:nth-child(even) {
+    color: blue;
+}
+li:nth-child(odd) {
+    color: yellow;
+}
+
+
+
+.dropdown_text {
+    color: #0000FF;
+    text-align: center;
+    font-size: 2em;
+    margin-top: -1.5em;
+    opacity: 0;
+    z-index: -1;
+    transition: all ease-out 1s;
+}
+.header:hover + .dropdown_text {
+    opacity: 1;
+    margin-top: 2em;
+    transition: all linear 1s;
+}
+
+.header_menu_label {
+    position: relative;
+}
+.header_menu_checkbox {
+    position: absolute;
+    right:1em;
+    width: 80%;
+    height: 100%;
+    padding: 0;
+    background-color: yellow;
+
+}
+.header_menu_input {
+    position:absolute;
+    -webkit-appearance:none;
+}
+
+
+
+/*popup_menu*/
+.popup_menu {
+    display: none;
+    position: absolute;    
+    top:100px;
+    right: 35px;
+    width:300px;
+    background-color: #ededed;
+    box-shadow: 1px 1px 8px #909090;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.popup_menu_item, .popup_menu_item_last, .popup_menu_more {
+    width: 75px;
+    height: 75px;
+    padding:5px;
+    margin: 5px;
+    background-image:url(./img/popup-icons/calendar.png);
+    background-size:contain;
+}
+
+.header_menu_input:checked + .header_menu_checkbox {
+    border: 3px dashed blue;
+}
+.header_menu_input:checked ~ .popup_menu {
+    display: flex;
+}
+.popup_menu_more:checked ~ .popup_menu_item_last {
+    display: none;
+}
